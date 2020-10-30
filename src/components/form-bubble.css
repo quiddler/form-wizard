@@ -1,0 +1,30 @@
+.form-bubble {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 5px solid blue;
+    color: blue;
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.67);
+    transition: all 0.5s ease-in-out;
+}
+
+.form-bubble.active {
+    background-color: blue;
+    color: white;
+    transform: scale(1.1);
+}
+
+.form-bubble.disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.form-bubble.success {
+    background-color: green;
+    color: white;
+}
