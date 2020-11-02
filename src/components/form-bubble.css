@@ -26,5 +26,6 @@
 
 .form-bubble.success {
     background-color: green;
+    border-color: green;
     color: white;
 }

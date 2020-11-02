@@ -27,8 +27,8 @@ function App() {
   const [successIndices, setSuccessIndices] = React.useState(new Array<number>())
 
   return (
-    <div className="container mt-5">
-      <div className="row mb-5">
+    <div className="container">
+      <div className="row mt-5 mb-5">
         <FormBubble number={1} 
                     active={currentIndex === 1} 
                     disabled={allowedIndex < 1} 
@@ -51,7 +51,7 @@ function App() {
         <button className="btn btn-primary" onClick={() => {if(allowedIndex > currentIndex && currentIndex < 5) setCurrentIndex(currentIndex + 1)}}>Next</button>
       </div>
       <div className="row">
-        {forms[currentIndex - 1]}
+        {React.cloneElement(forms[currentIndex - 1], {index: currentIndex})}
       </div>
     </div>
   );
