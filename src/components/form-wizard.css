@@ -1,0 +1,9 @@
+.form-wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.form-nav-wrapper {
+    width: 100%;
+    display: flex;
+}

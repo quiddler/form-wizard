@@ -1,11 +1,79 @@
 import React from 'react'
 
-export const FormOne = (props: any) => <p onClick={() => props.cb(true)}>Form One: {props.index}</p>
+export const FormOne = (props: any) => {
 
-export const FormTwo = (props: any) => <p>Form Two: {props.index}</p>
+    return (
+        <div>
+            <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
+            <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
+            
+            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
+            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+        </div>
+    )
+}
 
-export const FormThree = (props: any) => <p>Form Three: {props.index}</p>
+export const FormTwo = (props: any) => {
 
-export const FormFour = (props: any) => <p>Form Four: {props.index}</p>
+    return (
+        <div>
+            <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
+            <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
+            
+            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
+            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+        </div>
+    )
+}
 
-export const FormFive = (props: any) => <p>Form Five: {props.index}</p>
+export const FormThree = (props: any) => {
+
+    return (
+        <div>
+            <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
+            <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
+            
+            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
+            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+        </div>
+    )
+}
+
+export const FormFour = (props: any) => {
+
+    return (
+        <div>
+            <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
+            <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
+            
+            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
+            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+        </div>
+    )
+}
+
+export const FormFive = (props: any) => {
+
+    return (
+        <div>
+            <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
+            <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
+            
+            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
+            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+        </div>
+    )
+}
+
+export const FormSix = (props: any) => {
+
+    return (
+        <div>
+            <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
+            <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
+            
+            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
+            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+        </div>
+    )
+}
