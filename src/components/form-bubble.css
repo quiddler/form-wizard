@@ -30,7 +30,7 @@
     color: var(--light);
 }
 
-.zgp-form-bubble.error {
+.zgo-form-bubble.error {
     background-color: var(--danger);
     border-color: var(--danger);
     color: var(--light);

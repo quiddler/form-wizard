@@ -96,7 +96,7 @@ export const FormWizard = (props: any) => {
 
   return (
     <>
-        <div className="form-nav-wrapper">
+        <div className="zgo-form-nav-wrapper">
             {props.forms.map( (_form: JSX.Element, i: number, arr: Array<JSX.Element>) => {
                 if (i === arr.length - 1) {
                     return bubble(i)
@@ -111,7 +111,7 @@ export const FormWizard = (props: any) => {
             })}
         </div>
 
-        <div className="form-wrapper">
+        <div className="zgo-form-wrapper">
             {React.cloneElement(props.forms[currentIndex], injectProps(currentIndex))}
         </div>
     </>

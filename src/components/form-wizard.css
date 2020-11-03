@@ -1,9 +1,9 @@
-.form-wrapper {
+.zgo-form-wrapper {
     width: 100%;
     display: flex;
 }
 
-.form-nav-wrapper {
+.zgo-form-nav-wrapper {
     width: 100%;
     display: flex;
 }
