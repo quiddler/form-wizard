@@ -30,17 +30,18 @@ export class FormWizardPropsModel {
 
 export const FormWizard = (props: any) => {
 
-    const formSuccess = async (ans: boolean, idx: number) => {
+    const formSuccess = (ans: boolean, idx: number) => {
         if (ans) {
             if(currentIndex === allowedIndex) 
                 setAllowedIndex(allowedIndex + 1)
+            else
+                next()
             if (!successIndices.includes(idx)) 
                 setSuccessIndices(successIndices.concat(idx))
             if (errorIndices.includes(idx)) {
                 let errorIndex = errorIndices.indexOf(idx)
                 setErrorIndices(errorIndices.filter((_, index) => index !== errorIndex))
             }
-            next()
         } else {
             if (!errorIndices.includes(idx)) 
                 setErrorIndices(errorIndices.concat(idx))
@@ -52,8 +53,7 @@ export const FormWizard = (props: any) => {
     }
 
     const next = () => {
-        console.log(allowedIndex, currentIndex)
-        if(allowedIndex >= currentIndex && currentIndex < props.forms.length - 1) 
+        if(allowedIndex > currentIndex && currentIndex < props.forms.length - 1) 
             setCurrentIndex(currentIndex + 1)
     }
 
@@ -89,6 +89,10 @@ export const FormWizard = (props: any) => {
   const [allowedIndex,   setAllowedIndex]   = React.useState(0)
   const [successIndices, setSuccessIndices] = React.useState(new Array<number>())
   const [errorIndices,   setErrorIndices]   = React.useState(new Array<number>())
+
+  React.useEffect(() => {
+    if (allowedIndex > currentIndex) next();
+  }, [allowedIndex]);
 
   return (
       <>
