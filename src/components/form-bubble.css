@@ -1,4 +1,4 @@
-.form-bubble {
+.zgo-form-bubble {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -13,37 +13,44 @@
     transition: all 0.5s ease-in-out;
 }
 
-.form-bubble.active {
+.zgo-form-bubble.active {
     background-color: var(--primary);
     color: var(--light);
     transform: scale(1.1);
 }
 
-.form-bubble.disabled {
+.zgo-form-bubble.disabled {
     background-color: #ddd;
     cursor: not-allowed;
 }
 
-.form-bubble.success {
+.zgo-form-bubble.success {
     background-color: var(--success);
     border-color: var(--success);
     color: var(--light);
 }
 
-.form-bubble.error {
+.zgp-form-bubble.error {
     background-color: var(--danger);
     border-color: var(--danger);
     color: var(--light);
 }
 
-.form-bubble.error.active {
+.zgo-form-bubble.error.active {
     background-color: var(--primary);
     border-color: var(--danger);
     color: var(--light);
 }
 
-.form-bubble.success.active {
+.zgo-form-bubble.success.active {
     background-color: var(--primary);
     border-color: var(--success);
     color: var(--light);
+}
+
+.zgo-font {
+    font-weight: 900;
+    font-size: 24px;
+    left: -2px;
+    position: relative;
 }

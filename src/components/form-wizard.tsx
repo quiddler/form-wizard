@@ -3,7 +3,7 @@ import { FormBubble } from './form-bubble'
 import { FormLine } from './form-line'
 import './form-wizard.css'
 
-export class FormWizardPropsModel {
+export class FormWizardProps {
 
     public zgo: {
         success: Function
@@ -12,7 +12,7 @@ export class FormWizardPropsModel {
         index: number
         first: boolean
         last: boolean
-        valid: boolean
+        valid: Function
     }
 
     constructor() {
@@ -23,7 +23,7 @@ export class FormWizardPropsModel {
             index : -1,
             first : false,
             last : false,
-            valid : false
+            valid : () => {}
         }
     }
 }
@@ -62,7 +62,7 @@ export const FormWizard = (props: any) => {
             setCurrentIndex(currentIndex - 1)
     }
 
-    const injectProps = (idx: number): FormWizardPropsModel => {
+    const injectProps = (idx: number): FormWizardProps => {
         return {
             zgo: {
                 success: formSuccess,
@@ -71,13 +71,13 @@ export const FormWizard = (props: any) => {
                 index: idx,
                 first: idx === 0,
                 last: idx === props.forms.length - 1,
-                valid: errorIndices.length === 0
+                valid: () => errorIndices.length === 0
             }
         }
     }
 
   const bubble = (index: number) => <FormBubble number={index}
-                                                key={index + "-" + index}
+                                                key={index.toString()}
                                                 active={currentIndex === index}
                                                 disabled={allowedIndex < index}
                                                 error={errorIndices.includes(index)}
@@ -91,11 +91,11 @@ export const FormWizard = (props: any) => {
   const [errorIndices,   setErrorIndices]   = React.useState(new Array<number>())
 
   React.useEffect(() => {
-    if (allowedIndex > currentIndex) next();
+      if (allowedIndex > currentIndex) next();
   }, [allowedIndex]);
 
   return (
-      <>
+    <>
         <div className="form-nav-wrapper">
             {props.forms.map( (_form: JSX.Element, i: number, arr: Array<JSX.Element>) => {
                 if (i === arr.length - 1) {
