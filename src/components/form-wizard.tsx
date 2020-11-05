@@ -129,9 +129,21 @@ export const FormWizard = (props: any) => {
                                                         cb={(num: number) => setCurrentIndex(num)} 
                                                         last={index === props.forms.length - 1}/>
 
-    const rectangleNav = () => props.forms.map( (_form: JSX.Element, i: number) => rectangle(i))
+    const rectangleNav = () => props.forms.map( (_form: JSX.Element, i: number, arr: Array<JSX.Element>) => {
+        if (i === arr.length - 1) {
+            return rectangle(i)
+        } else {
+            return (
+                <React.Fragment key={i.toString()}>
+                    {rectangle(i)}
+                    <FormLine/>
+                </React.Fragment>
+            )
+        }
+    })
 
-    const createNav = () => {
+
+    const selectNav = () => {
         switch(props.nav) {
             case "circle":
                 return bubbleNav()
@@ -157,7 +169,7 @@ export const FormWizard = (props: any) => {
         <div className="zgo-wrapper">
             <h1 className="zgo-title">{props.title}</h1>
             <div className="zgo-form-nav-wrapper">
-                {createNav()}
+                {selectNav()}
             </div>
 
             <div className="zgo-form-wrapper">

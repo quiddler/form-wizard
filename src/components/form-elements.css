@@ -34,7 +34,7 @@
     align-items: center;
     height: 50px;
     flex-basis: 0;
-    flex-grow: 1;
+    flex-grow: 2;
     max-width: 100%;
     border: 5px solid var(--primary);
     color: var(--primary);
@@ -42,11 +42,6 @@
     box-sizing: border-box;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.67);
     transition: all 0.5s ease-in-out;
-    margin-left: 1em;
-}
-
-.zgo-form-rectangle:first-child {
-    margin-left: 0px;
 }
 
 .zgo-form-bubble.active, 
