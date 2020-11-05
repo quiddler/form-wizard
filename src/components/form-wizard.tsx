@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormBubble } from './form-bubble'
+import { FormBubble, FormSquare, FormRectangle } from './form-elements'
 import { FormLine } from './form-line'
 import './form-wizard.css'
 
@@ -76,44 +76,93 @@ export const FormWizard = (props: any) => {
         }
     }
 
-  const bubble = (index: number) => <FormBubble number={index}
-                                                key={index.toString()}
-                                                active={currentIndex === index}
-                                                disabled={allowedIndex < index}
-                                                error={errorIndices.includes(index)}
-                                                success={successIndices.includes(index)}
-                                                cb={(num: number) => setCurrentIndex(num)} 
-                                                last={index === props.forms.length - 1}/>
+    const bubble = (index: number) => <FormBubble number={index}
+                                                  key={index.toString()}
+                                                  active={currentIndex === index}
+                                                  disabled={allowedIndex < index}
+                                                  error={errorIndices.includes(index)}
+                                                  success={successIndices.includes(index)}
+                                                  cb={(num: number) => setCurrentIndex(num)} 
+                                                  last={index === props.forms.length - 1}/>
 
-  const [currentIndex,   setCurrentIndex]   = React.useState(0)
-  const [allowedIndex,   setAllowedIndex]   = React.useState(0)
-  const [successIndices, setSuccessIndices] = React.useState(new Array<number>())
-  const [errorIndices,   setErrorIndices]   = React.useState(new Array<number>())
+    const bubbleNav = () => props.forms.map( (_form: JSX.Element, i: number, arr: Array<JSX.Element>) => {
+        if (i === arr.length - 1) {
+            return bubble(i)
+        } else {
+            return (
+                <React.Fragment key={i.toString()}>
+                    {bubble(i)}
+                    <FormLine/>
+                </React.Fragment>
+            )
+        }
+    })
 
-  React.useEffect(() => {
-      if (allowedIndex > currentIndex) next();
-  }, [allowedIndex]);
+    const square = (index: number) => <FormSquare number={index}
+                                                  key={index.toString()}
+                                                  active={currentIndex === index}
+                                                  disabled={allowedIndex < index}
+                                                  error={errorIndices.includes(index)}
+                                                  success={successIndices.includes(index)}
+                                                  cb={(num: number) => setCurrentIndex(num)} 
+                                                  last={index === props.forms.length - 1}/>
 
-  return (
-    <>
-        <div className="zgo-form-nav-wrapper">
-            {props.forms.map( (_form: JSX.Element, i: number, arr: Array<JSX.Element>) => {
-                if (i === arr.length - 1) {
-                    return bubble(i)
-                } else {
-                    return (
-                        <React.Fragment key={i.toString()}>
-                            {bubble(i)}
-                            <FormLine/>
-                        </React.Fragment>
-                    )
-                }
-            })}
+    const squareNav = () => props.forms.map( (_form: JSX.Element, i: number, arr: Array<JSX.Element>) => {
+        if (i === arr.length - 1) {
+            return square(i)
+        } else {
+            return (
+                <React.Fragment key={i.toString()}>
+                    {square(i)}
+                    <FormLine/>
+                </React.Fragment>
+            )
+        }
+    })
+
+    const rectangle = (index: number) => <FormRectangle number={index}
+                                                        key={index.toString()}
+                                                        active={currentIndex === index}
+                                                        disabled={allowedIndex < index}
+                                                        error={errorIndices.includes(index)}
+                                                        success={successIndices.includes(index)}
+                                                        cb={(num: number) => setCurrentIndex(num)} 
+                                                        last={index === props.forms.length - 1}/>
+
+    const rectangleNav = () => props.forms.map( (_form: JSX.Element, i: number) => rectangle(i))
+
+    const createNav = () => {
+        switch(props.nav) {
+            case "circle":
+                return bubbleNav()
+            case "square":
+                return squareNav()
+            case "rectangle":
+                return rectangleNav()
+            default:
+                return bubbleNav()
+        }
+    }
+
+    const [currentIndex,   setCurrentIndex]   = React.useState(0)
+    const [allowedIndex,   setAllowedIndex]   = React.useState(0)
+    const [successIndices, setSuccessIndices] = React.useState(new Array<number>())
+    const [errorIndices,   setErrorIndices]   = React.useState(new Array<number>())
+
+    React.useEffect(() => {
+        if (allowedIndex > currentIndex) next();
+    }, [allowedIndex]);
+
+    return (
+        <div className="zgo-wrapper">
+            <h1 className="zgo-title">{props.title}</h1>
+            <div className="zgo-form-nav-wrapper">
+                {createNav()}
+            </div>
+
+            <div className="zgo-form-wrapper">
+                {React.cloneElement(props.forms[currentIndex], injectProps(currentIndex))}
+            </div>
         </div>
-
-        <div className="zgo-form-wrapper">
-            {React.cloneElement(props.forms[currentIndex], injectProps(currentIndex))}
-        </div>
-    </>
-  )
+    )
 }

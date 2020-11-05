@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="container">
       <div className="row mt-5 mb-5">
-        <FormWizard forms={forms} />
+        <FormWizard forms={forms} title="Incident Form"/>
       </div>
     </div>
   );

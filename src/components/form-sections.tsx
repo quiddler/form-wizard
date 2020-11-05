@@ -7,8 +7,8 @@ export const FormOne = (props: any) => {
             <button className="btn btn-secondary" onClick={() => props.zgo.success(false, props.zgo.index)}>Fake error</button>
             <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
             
-            {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
-            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+            {props.zgo.first ? null : <button onClick={props.zgo.previous}>Previous</button>}
+            <button onClick={props.zgo.next}>{props.zgo.last ? "Submit" : "Continue"}</button>
         </div>
     )
 }
@@ -21,7 +21,7 @@ export const FormTwo = (props: any) => {
             <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
             
             {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
-            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+            <button onClick={() => props.zgo.next()}>{props.zgo.last ? "Submit" : "Continue"}</button>
         </div>
     )
 }
@@ -34,7 +34,7 @@ export const FormThree = (props: any) => {
             <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
             
             {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
-            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+            <button onClick={() => props.zgo.next()}>{props.zgo.last ? "Submit" : "Continue"}</button>
         </div>
     )
 }
@@ -47,7 +47,7 @@ export const FormFour = (props: any) => {
             <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
             
             {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
-            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+            <button onClick={() => props.zgo.next()}>{props.zgo.last ? "Submit" : "Continue"}</button>
         </div>
     )
 }
@@ -60,7 +60,7 @@ export const FormFive = (props: any) => {
             <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
             
             {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
-            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+            <button onClick={() => props.zgo.next()}>{props.zgo.last ? "Submit" : "Continue"}</button>
         </div>
     )
 }
@@ -73,7 +73,7 @@ export const FormSix = (props: any) => {
             <button className="btn btn-primary" onClick={() => props.zgo.success(true, props.zgo.index)}>Fake success</button>
             
             {props.zgo.first ? null : <button onClick={() => props.zgo.previous()}>Previous</button>}
-            {props.zgo.last ? <button onClick={() => props.zgo.next()}>Submit</button> : <button onClick={() => props.zgo.next()}>Continue</button>}
+            <button onClick={() => props.zgo.next()}>{props.zgo.last ? "Submit" : "Continue"}</button>
         </div>
     )
 }
