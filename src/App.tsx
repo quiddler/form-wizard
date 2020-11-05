@@ -13,7 +13,9 @@ function App() {
     <div className="container">
       <div className="row mt-5 mb-5">
         <FormWizard forms={forms} title="Circle Form"/>
+        <div className="mt-5">&nbsp;</div>
         <FormWizard forms={forms} title="Square Form" nav="square"/>
+        <div className="mt-5">&nbsp;</div>
         <FormWizard forms={forms} title="Rectangle Form" nav="rectangle"/>
       </div>
     </div>
