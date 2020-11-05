@@ -3,7 +3,7 @@ import { FormBubble, FormSquare, FormRectangle } from './form-elements'
 import { FormLine } from './form-line'
 import './form-wizard.css'
 
-export class FormWizardProps {
+export class FormWizardInjectedProps {
 
     public zgo: {
         success: Function
@@ -28,7 +28,19 @@ export class FormWizardProps {
     }
 }
 
-export const FormWizard = (props: any) => {
+export class FormWizardProps {
+    public forms: Array<JSX.Element>
+    public title: string
+    public nav?: string
+
+    constructor() {
+        this.forms = new Array<JSX.Element>()
+        this.title = ""
+        this.nav = ""
+    }
+}
+
+export const FormWizard = (props: FormWizardProps) => {
 
     const formSuccess = (ans: boolean, idx: number) => {
         if (ans) {
@@ -62,7 +74,7 @@ export const FormWizard = (props: any) => {
             setCurrentIndex(currentIndex - 1)
     }
 
-    const injectProps = (idx: number): FormWizardProps => {
+    const injectProps = (idx: number): FormWizardInjectedProps => {
         return {
             zgo: {
                 success: formSuccess,
