@@ -30,7 +30,7 @@ export class FormWizardInjectedProps {
 
 export class FormWizardProps {
     public forms: Array<JSX.Element>
-    public title: string
+    public title?: string
     public nav?: string
 
     constructor() {
